@@ -1,5 +1,5 @@
 import './App.css'
 
-const App = () => <></>
+const App = () => <input />
 
 export default App
