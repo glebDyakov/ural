@@ -10,7 +10,7 @@ const App = () => {
 
     return (
         <>
-            <input onChange={handleInput} />
+            <input name="number" onChange={handleInput} />
             <ul class="list-group">
                 <li class="list-group-item">Производитель 1</li>
                 <li class="list-group-item">Производитель 2</li>
