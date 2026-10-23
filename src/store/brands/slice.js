@@ -12,11 +12,10 @@ const brandsSlice = createSlice({
   initialState,
   reducers: {
     setError: (state, value) => {
-      console.log('reducers setError')
       state.error = value.payload
     }
   },
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder.addCase(fetchBrands.pending, (state, _) => {
       state.list = null
       state.error = null
