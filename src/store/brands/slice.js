@@ -18,27 +18,27 @@ const brandsSlice = createSlice({
     }
   },
   extraReducers: builder => {
-    builder.addCase(fetchBrands.pending, (state, _) => {
+    builder.addCase(fetchGoods.pending, (state, _) => {
       state.list = null
       state.error = null
       state.isLoading = true
     })
-    builder.addCase(fetchBrands.rejected, (state, payload) => {
+    builder.addCase(fetchGoods.rejected, (state, payload) => {
       state.error = payload
       state.isLoading = false
     })
-    builder.addCase(fetchBrands.fulfilled, (state, action) => {
+    builder.addCase(fetchGoods.fulfilled, (state, action) => {
       state.list = action.payload
       state.isLoading = false
     })
   },
 })
 
-export const fetchBrands = createAsyncThunk(
-  'brands/fetchBrands',
-  async (number, thunkAPI) => {
+export const fetchGoods = createAsyncThunk(
+  'brands/fetchGoods',
+  async (params, thunkAPI) => {
     try {
-      const list = await repository.fetchBrands(number)
+      const list = await repository.fetchGoods(params)
       if (!list.length) throw new Error('No manufacturers found')
       return list
     } catch (error) {
